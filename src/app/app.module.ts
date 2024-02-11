@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// import material features
+/** import Angular Material modules */
 import { MatButtonModule } from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
@@ -18,7 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 
-// import app components
+/** import application components */
 import { AppComponent } from './app.component';
 import { DirectorDialogComponent } from './director-dialog/director-dialog.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -31,6 +31,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserUpdateFormComponent } from './user-update-form/user-update-form.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
+/** Define routes for the application */
 const appRoutes: Routes = [
     { path: 'welcome', component: WelcomePageComponent },
     { path: 'movies', component: MovieCardComponent },
@@ -38,6 +39,9 @@ const appRoutes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ]
 
+/**
+ * Main module of the application.
+ */
 @NgModule({
   declarations: [
     AppComponent,

@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { Router } from '@angular/router';
 
+/**
+ * Component for displaying navigation bar
+ */
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -14,7 +17,7 @@ export class NavBarComponent {
     ){}
 
 /**
- * This function logs the user out
+ * Method for logging the user out
  * @returns user and token removed from local storage
  * @returns user navigated to welcome page
  */

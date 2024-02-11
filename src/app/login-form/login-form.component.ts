@@ -12,6 +12,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 // import router to point to MovieCardComponent
 import { Router } from '@angular/router';
 
+/**
+ * Component for displaying a login form.
+ */
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -19,19 +22,33 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
 
+    /** Input data for the user. */
     @Input() userData = { Username: '', Password: ''};
 
-constructor(
-    public fetchApiData: FetchApiDataService,
-    public dialogRef: MatDialogRef<LoginFormComponent>,
-    public snackBar: MatSnackBar,
-    public router: Router
-) { }
+    /**
+     * Constructor for the LoginFormComponent.
+     * @param fetchApiData Service for making API calls.
+     * @param dialogRef Reference to the dialog opened by MatDialog.
+     * @param snackBar Service to display snack-bar messages.
+     * @param router Router service for navigation.
+     */
+    constructor(
+        public fetchApiData: FetchApiDataService,
+        public dialogRef: MatDialogRef<LoginFormComponent>,
+        public snackBar: MatSnackBar,
+        public router: Router
+    ) { }
 
+    /**
+     * Lifecycle hook that is called after data-bound properties of a directive are initialized.
+     */
     ngOnInit(): void {
         
     }
 
+    /**
+     * Method to authenticate the user.
+     */
     loginUser(): void {
         this.fetchApiData.userLogin(this.userData).subscribe((response) => {
             //logic for successful login goes here
@@ -43,7 +60,7 @@ constructor(
             this.snackBar.open('User successfully logged in.', 'OK', {
                 duration: 2500
             });
-            // successful login done
+            /** Successful login done */
             this.router.navigate(['movies']);
         }, (response) => {
             this.snackBar.open(response, 'OK', {
